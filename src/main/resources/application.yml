@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: prod
+    default: prod
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  config:
+    import:
+      - classpath:private/private-config.yml
+      - classpath:private/db-config.yml

@@ -35,7 +35,7 @@ dependencies {
 
 	// QueryDSL 설정
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
-	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
 	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
 	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
@@ -50,10 +50,12 @@ tasks.named('test') {
 }
 
 // QueryDSL 설정
-def querydslSrcDir = 'src/main/generated'
-clean {
-	delete file(querydslSrcDir)
-}
+def querydslDir = 'src/main/generated'
+
 tasks.withType(JavaCompile) {
-	options.generatedSourceOutputDirectory = file(querydslSrcDir)
+	options.getGeneratedSourceOutputDirectory().set(file(querydslDir))
+}
+
+clean {
+	delete file(querydslDir)
 }
