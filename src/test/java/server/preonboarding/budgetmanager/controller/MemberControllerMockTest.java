@@ -74,7 +74,7 @@ class MemberControllerMockTest {
             performMockMvc(accountInfoJson, ErrorCode.PASSWORD_INVALID_FORMAT);
         }
 
-        @DisplayName("유효한 이메일, 패스워드이면 200")
+        @DisplayName("유효한 이메일, 패스워드이면 201")
         @Test
         void validAccountInfo_200() throws Exception {
             String accountInfoJson = createAccountInfoJson("jeonggoo75@gmail.com", "qlalfqjsgh486^^");
@@ -82,7 +82,7 @@ class MemberControllerMockTest {
             mockMvc.perform(post(BASE_URI)
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(accountInfoJson))
-                    .andExpect(status().isOk())
+                    .andExpect(status().isCreated())
                     .andExpect(jsonPath("$").doesNotExist())
                     .andDo(print())
                     .andReturn();

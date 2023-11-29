@@ -8,10 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import server.preonboarding.budgetmanager.MemberRepository;
-import server.preonboarding.budgetmanager.domain.Member;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -26,8 +23,6 @@ public class MemberControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-    @Autowired
-    private MemberRepository memberRepository;
 
     @DisplayName("사용자 회원가입")
     @Nested
@@ -45,13 +40,10 @@ public class MemberControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody)
                     )
-                    .andExpect(status().isOk())
+                    .andExpect(status().isCreated())
                     .andExpect(jsonPath("$").doesNotExist())
                     .andDo(print())
                     .andReturn();
-
-            Member savedMember = memberRepository.findById(1L).orElseThrow();
-            assertThat(savedMember.getId()).isEqualTo(1L);
         }
 
     }

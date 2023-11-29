@@ -72,7 +72,7 @@ class AuthControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(joinContent)
                 )
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     private void failToLogin(String email, String password) throws Exception {
