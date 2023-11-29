@@ -23,7 +23,7 @@ public class MemberController {
     @PostMapping
     public ResponseEntity<?> join(@RequestBody @Validated(ValidationSequence.class) MemberJoinRequest dto) {
         memberService.join(dto);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
