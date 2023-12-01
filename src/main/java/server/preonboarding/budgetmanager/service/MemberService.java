@@ -4,11 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import server.preonboarding.budgetmanager.MemberRepository;
 import server.preonboarding.budgetmanager.domain.Member;
 import server.preonboarding.budgetmanager.dto.MemberJoinRequest;
 import server.preonboarding.budgetmanager.exception.CustomException;
 import server.preonboarding.budgetmanager.exception.ErrorCode;
+import server.preonboarding.budgetmanager.repository.MemberRepository;
 
 @RequiredArgsConstructor
 @Service

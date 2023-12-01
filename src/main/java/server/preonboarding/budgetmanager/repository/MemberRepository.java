@@ -1,4 +1,4 @@
-package server.preonboarding.budgetmanager;
+package server.preonboarding.budgetmanager.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import server.preonboarding.budgetmanager.domain.Member;
