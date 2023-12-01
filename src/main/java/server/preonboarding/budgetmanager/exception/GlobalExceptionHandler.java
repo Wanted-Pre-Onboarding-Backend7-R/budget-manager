@@ -1,5 +1,6 @@
 package server.preonboarding.budgetmanager.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -10,6 +11,7 @@ import java.util.Objects;
 
 import static server.preonboarding.budgetmanager.exception.CommonErrorResponse.makeErrorResponse;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -31,6 +33,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<?> handle(CustomException e) {
         return makeErrorResponse(e.getErrorCode());
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<?> handle(RuntimeException e) {
+        log.error(e.getMessage());
+        return makeErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR);
     }
 
 }
