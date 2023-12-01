@@ -13,9 +13,13 @@ public class JwtProvider {
 
     public String createAccessToken(Long id) {
         Date now = new Date();
+        return createAccessToken(id, now);
+    }
+
+    public String createAccessToken(Long id, Date issuedAt) {
         return Jwts.builder()
                 .subject(id.toString())
-                .issuedAt(now)
+                .issuedAt(issuedAt)
                 .signWith(secretKey)
                 .compact();
     }
