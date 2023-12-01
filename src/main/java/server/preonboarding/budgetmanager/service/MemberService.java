@@ -36,4 +36,10 @@ public class MemberService {
         return passwordEncoder.encode(dto.getPassword());
     }
 
+    @Transactional(readOnly = true)
+    public Member getMember(Long id) {
+        return memberRepository.findById(id)
+                .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND_BY_ID));
+    }
+
 }
