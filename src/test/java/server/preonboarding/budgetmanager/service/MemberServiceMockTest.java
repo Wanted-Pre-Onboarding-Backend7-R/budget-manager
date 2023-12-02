@@ -1,6 +1,5 @@
 package server.preonboarding.budgetmanager.service;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -9,11 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import server.preonboarding.budgetmanager.MemberRepository;
 import server.preonboarding.budgetmanager.domain.Member;
 import server.preonboarding.budgetmanager.dto.MemberJoinRequest;
 import server.preonboarding.budgetmanager.exception.CustomException;
 import server.preonboarding.budgetmanager.exception.ErrorCode;
+import server.preonboarding.budgetmanager.repository.MemberRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

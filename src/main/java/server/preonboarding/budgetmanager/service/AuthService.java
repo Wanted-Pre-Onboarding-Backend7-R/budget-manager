@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import server.preonboarding.budgetmanager.MemberRepository;
+import server.preonboarding.budgetmanager.repository.MemberRepository;
 import server.preonboarding.budgetmanager.domain.Member;
 import server.preonboarding.budgetmanager.dto.AuthLoginRequest;
 import server.preonboarding.budgetmanager.dto.AuthLoginResponse;

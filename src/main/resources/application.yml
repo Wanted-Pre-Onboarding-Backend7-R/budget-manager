@@ -11,6 +11,10 @@ spring:
       hibernate:
         format_sql: true
         show_sql: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:db/data.sql
   config:
     import:
       - classpath:private/private-config.yml
